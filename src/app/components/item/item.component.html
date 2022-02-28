@@ -1,0 +1,25 @@
+<div class="items">
+
+    <form (submit)="addItem()" action="">
+        <input class="w3-input w3-animate-input" style="width:20%" type="text" placeholder="Enter Items..." name="inputItem" [(ngModel)]="inputTodo" />
+        <input type="submit" value="Add Todo" class="item-submit" />
+    </form>
+
+    <div class="item {{(item.done? 'done': '')}} " *ngFor=" let item of todos, let i=index ">
+        <div class="id ">
+            {{i}}
+        </div>
+        <div class="content ">
+            {{item.content}}
+        </div>
+
+        <!-- bind button with event (click) and function onToogle(), pass in parameter i-->
+        <button class="w3-button w3-green " (click)="onToogle(i) ">Done</button>
+    </div>
+</div>
+<footer>
+    <div style="text-align: center;">
+        <button class="w3-button w3-red" (click)="deleteAllItem()">Delete All </button>
+    </div>
+
+</footer>
